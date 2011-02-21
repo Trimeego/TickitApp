@@ -1,0 +1,19 @@
+%h1 Listing tickits
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Created
+    %th
+    %th
+    %th
+  - @tickits.each do |tickit|
+    %tr
+      %td= tickit.title
+      %td= tickit.description
+      %td= format_dt(tickit.created_at)
+      %td= link_to 'Show', tickit
+      %td= link_to 'Edit', edit_tickit_path(tickit)
+      %td= link_to 'Destroy', tickit, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New Tickit sheet', new_user_tickit_path(@user)

@@ -1,0 +1,7 @@
+%p#notice= notice
+%h2= @tickit.title
+%p= @tickit.description
+%h3= @tickit.prompt
+= link_to 'Edit', edit_user_tickit_path(@user, @tickit)
+
+= link_to 'Back', user_tickits_path(@user)

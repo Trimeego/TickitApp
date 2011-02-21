@@ -1,0 +1,23 @@
+= form_for [@user, @tickit] do |f|
+  - if @tickit.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@tickit.errors.count, "error")
+        prohibited this tickit from being saved:
+      %ul
+        - @tickit.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :title
+    = f.text_field :title, :class => "input-area"
+  .field
+    = f.label :description
+    = f.text_area :description, :class => "input-area"
+  .field
+    = f.label :prompt
+    = f.text_field :prompt, :class => "input-area"
+  = f.fields_for :tickit_fields do |tf_fields|
+    = tf_fields.label :prompt
+    = tf_fields.text_field :prompt, :class => "input-area"
+  .actions
+    = f.submit :disable_with => "Please Wait..."

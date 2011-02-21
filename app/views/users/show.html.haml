@@ -1,0 +1,16 @@
+%p 
+  User:
+  = @user.email
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th
+  - @user.tickits.each do |tickit|
+    %tr
+      %td= link_to tickit.title, edit_user_tickit_path(@user, tickit)      
+      %td= tickit.description
+      %td= link_to 'Destroy', user_tickit_path(@user, tickit), :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New Tickit sheet', new_user_tickit_path(@user)  

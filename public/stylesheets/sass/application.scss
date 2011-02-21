@@ -1,0 +1,122 @@
+$corner_radius: 5px;
+$form_background: #ffebdd;
+$form_outline: 1px solid #dddddd;
+$form_width: 320px;
+
+@mixin rounded-top {
+  $side: top;
+  border-#{$side}-radius: $corner_radius;
+  -moz-border-radius-#{$side}: $corner_radius;
+  -webkit-border-#{$side}-radius: $corner_radius;
+}
+
+@mixin rounded-bottom {
+  $side: bottom;
+  border-#{$side}-radius: $corner_radius;
+  -moz-border-radius-#{$side}: $corner_radius;
+  -webkit-border-#{$side}-radius: $corner_radius;
+}
+
+body { 
+  background-color: #fff; 
+  color: #333; 
+}
+
+form {
+	padding:  10px;
+	background-color: $form_background;
+	border: $form_outline;
+	width: $form_width;
+	@include rounded-top;
+	@include rounded-bottom;
+}
+
+.field{
+	
+}
+
+.field label{
+	font-family: helvetica;
+	font-weight: bold;
+}
+
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  display: table;
+  border: 1px solid b20909;
+  label {
+  	color: #b20909;
+  }  
+  .input-area {
+    border: 1px solid b20909;
+  }
+}
+
+
+#error_explanation {
+  border: 1px solid #b20909;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #ffb3b5;
+  color: #222;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+ul{
+  hmenu {
+    list-style: none;	
+    margin: 0 0 2em;
+    padding: 0;
+    li {
+      display: inline;  
+    }
+  }
+}
+
+p.notice {
+  color: green;
+}
+
+p.alert {
+  color: red;  
+}
