@@ -1,4 +1,7 @@
+require 'tlsmail' #key but not always described
+
 TickitApp::Application.configure do
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -31,7 +34,7 @@ TickitApp::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  require 'tlsmail' #key but not always described
+  config.action_mailer.default_url_options = { :host => 'trimeego.com' }
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
