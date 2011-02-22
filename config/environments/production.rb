@@ -1,4 +1,3 @@
-require 'tlsmail' #key but not always described
 
 TickitApp::Application.configure do
 
@@ -13,10 +12,10 @@ TickitApp::Application.configure do
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
-  config.action_dispatch.x_sendfile_header = "X-Sendfile"
+  #config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
   # For nginx:
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
@@ -34,14 +33,15 @@ TickitApp::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  config.action_mailer.default_url_options = { :host => 'trimeego.com' }
+  config.action_mailer.default_url_options = { :host => 'tickitapp.trimeego.com' }
+  require 'tlsmail' #key but not always described
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
   
   ActionMailer::Base.smtp_settings = {
-    :enable_starttls_auto => true,  #this is the important shit!
+    :enable_starttls_auto => true,  
     :address        => 'smtp.gmail.com',
     :port           => 587,
     :domain         => 'trimeego.com',

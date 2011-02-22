@@ -6,15 +6,6 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
-    #header
-      #logo-area
-        Ticket
-      #title-area
-        count. learn. share.
-      #action-area
-        %ul.hmenu
-          = render 'devise/menu/registration_items'
-          = render 'devise/menu/login_items'
     %p.notice= notice
     %p.alert= alert
     = yield

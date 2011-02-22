@@ -14,5 +14,5 @@ class Tickit
   
   accepts_nested_attributes_for :tickit_fields
     
-  embedded_in :user, :inverse_of => :tickits
+  referenced_in :user
 end

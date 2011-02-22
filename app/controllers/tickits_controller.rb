@@ -1,5 +1,7 @@
 class TickitsController < ApplicationController
   respond_to :html, :xml, :json
+  layout "home"
+  
   def index
     @user = User.find(params[:user_id])
     @tickits = @user.tickits
