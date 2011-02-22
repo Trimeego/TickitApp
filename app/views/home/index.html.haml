@@ -1,5 +1,6 @@
-%h1 Home#index
-- @users.each do |user|
-  %p 
-    User
-    =link_to user.email, user
+#container
+  %h1 Home#index
+  - @users.each do |user|
+    %p 
+      User
+      =link_to user.email, user
